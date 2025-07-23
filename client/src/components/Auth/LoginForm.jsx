@@ -56,7 +56,8 @@
 -      setError(
 -        err.message || "Failed to login. Please check your credentials."
 -      );
-+      const errorMessage = err.response?.data?.error || err.message || "Failed to login. Please check your credentials.";
++      const errorMessage = err.response?.data?.error || 
+}err.message || "Failed to login. Please check your credentials.";
 +      setError(errorMessage);
 +      dispatch(loginFailure(errorMessage));
 +      // Stay on login page on error
